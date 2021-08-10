@@ -26,5 +26,10 @@ namespace Webkd.Controllers
 
             return View();
         }
+
+        public ActionResult Biografia ()
+        {
+            return View();
+        }
     }
 }
