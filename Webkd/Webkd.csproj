@@ -130,6 +130,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductoCompraController.cs" />
+    <Compile Include="Controllers\productoController.cs" />
     <Compile Include="Controllers\proveedoresController.cs" />
     <Compile Include="Controllers\rolesController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -252,9 +254,15 @@
     <Content Include="Views\roles\Create.cshtml" />
     <Content Include="Views\roles\Details.cshtml" />
     <Content Include="Views\roles\Edit.cshtml" />
+    <Content Include="Views\producto\Index.cshtml" />
+    <Content Include="Views\producto\Create.cshtml" />
+    <Content Include="Views\producto\ListarProveedores.cshtml" />
+    <Content Include="Views\producto\Details.cshtml" />
+    <Content Include="Views\producto\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ProductoCompra\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
