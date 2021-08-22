@@ -1,0 +1,42 @@
+﻿@model Webkd.Models.producto_compra
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Producto_Compra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Compra
+        </dt>
+
+        <dd>
+            @Webkd.Controllers.ProductoCompraController.totalCompra(Model.id_compra)
+        </dd>
+
+        <dt>
+            Producto
+        </dt>
+
+        <dd>
+            @Webkd.Controllers.ProductoCompraController.NombreProducto(Model.id_producto)
+        </dd>
+
+        <dt>
+            Cantidad
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Regresar", "Index")
+</p>
