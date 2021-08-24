@@ -71,7 +71,7 @@ namespace Webkd.Controllers
             catch (Exception ex)
             {
                 ModelState.AddModelError("", "error " + ex);
-                return View();
+                return RedirectToAction("Index");
             }
         }
 

@@ -1,27 +1,27 @@
 ﻿@model IEnumerable<Webkd.Models.proveedor>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "PROVEERDORES";
 }
 
-<h2>Index</h2>
+<h2>Proveedores</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear nuevo", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.nombre)
+            NOMBRE
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.direccion)
+            DIRECCION
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.telefono)
+            TELEFONO
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nombre_contacto)
+            NOMBRE CONTACTO
         </th>
         <th></th>
     </tr>
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.nombre_contacto)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id })
         </td>
     </tr>
 }
