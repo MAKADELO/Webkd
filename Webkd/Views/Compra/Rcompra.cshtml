@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Webkd.Models.RCompra>
+@{
+    ViewBag.Title = "Rcompra";
+}
+
+<h2>INFORME</h2>
+<table class="table">
+    <tr>
+        <th>Cliente</th>
+        <th>Documento</th>
+        <th>Email Proveedor</th>
+        <th>Total</th>
+        <th>Fecha</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Nombrecliente)</td>
+            <td>@Html.DisplayFor(modelItem => item.Documentocliente)</td>
+            <td>@Html.DisplayFor(modelItem => item.Emailcliente)</td>
+            <td>@Html.DisplayFor(modelItem => item.Total)</td>
+            <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("imprimir reporte", "PDF_Reporte")
+

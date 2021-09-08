@@ -9,6 +9,7 @@ namespace Webkd.Controllers
 {
     public class proveedoresController : Controller
     {
+        [Authorize]
         // GET: proveedores
         public ActionResult Index()
         {

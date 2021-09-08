@@ -10,6 +10,7 @@ namespace Webkd.Controllers
 {
     public class rolesController : Controller
     {
+        [Authorize]
         // GET: roles
         public ActionResult Index()
         {

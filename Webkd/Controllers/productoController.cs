@@ -4,11 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Webkd.Models;
+using Rotativa;
 
 namespace Webkd.Controllers
 {
     public class productoController : Controller
     {
+        [Authorize]
         // GET: producto
         public ActionResult Index()
         {
@@ -123,6 +125,41 @@ namespace Webkd.Controllers
                 return RedirectToAction("Index");
             }
         }
+        public ActionResult Reporte()
+        {
+            try
+            {
+                var db = new inventario2021Entities();
+                var query = from tabProveedor in db.proveedor
+                            join tabProducto in db.producto on tabProveedor.id equals tabProducto.id_proveedor
+                            select new ReporteProducto
+                            {
+                                nombreProveedor = tabProveedor.nombre,
+                                telefonoProveedor = tabProveedor.telefono,
+                                direccionProveedor = tabProveedor.direccion,
+                                nombreProducto = tabProducto.nombre,
+                                PrecioProducto = tabProducto.percio_unitario
+                            };
+                return View(query);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+
+        public ActionResult PDF_Reporte()
+        {
+            return new ActionAsPdf("Reporte")
+            { FileName = "Reporte.pdf" }
+            ;
+        }
+
+
+
+
+
     }
-    
 }
+    

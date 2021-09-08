@@ -4,11 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Webkd.Models;
-
+using Rotativa;
 namespace Webkd.Controllers
 {
     public class CompraController : Controller
     {
+        [Authorize]
         // GET: Compra
         public ActionResult Index()
         {
@@ -137,6 +138,38 @@ namespace Webkd.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        public ActionResult RCompra()
+        {
+            try
+            {
+                var db = new inventario2021Entities();
+                var query = from tabcliente in db.cliente
+                            join tabcompra in db.compra on tabcliente.id equals tabcompra.id_cliente
+                            select new RCompra
+                            {
+                                Nombrecliente = tabcliente.nombre,
+                                Documentocliente = tabcliente.documento,
+                                Emailcliente = tabcliente.email,
+                                Fecha = tabcompra.fecha,
+                                Total = tabcompra.total
+                            };
+                return View(query);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+
+        public ActionResult PDF_Reporte()
+        {
+            return new ActionAsPdf("RCompra")
+            { FileName = "RCompra.pdf" }
+            ;
+        }
+
     }
-    
+
 }
