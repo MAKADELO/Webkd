@@ -231,8 +231,9 @@ namespace Webkd.Controllers
                             {
                                 nombre = row.Split(';')[0],
                                 apellido = row.Split(';')[1],
-                                email = row.Split(';')[2],
-                                password = row.Split(';')[3],
+                                email = row.Split(';')[3],
+                                fecha_nacimiento = Convert.ToDateTime(row.Split(';')[2]),
+                                password = row.Split(';')[4],
                             };
 
                             using (var db = new inventario2021Entities())
