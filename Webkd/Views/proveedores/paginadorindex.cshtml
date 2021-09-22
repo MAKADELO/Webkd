@@ -1,0 +1,29 @@
+﻿@model Webkd.Models.proveedorIndex
+
+@{
+    ViewBag.Title = "PaginadorIndex";
+}
+
+<h2>PaginadorIndex</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Nombre</th>
+        <th>Direccion</th>
+        <th>Telefono</th>
+        <th>Nombre de contacto</th>
+        
+    </tr>
+    @foreach (var proveedor in Model.proveedors)
+    {
+                <tr>
+                    <td>@proveedor.nombre</td>
+                    <td>@proveedor.direccion</td>
+                    <td>@proveedor.telefono</td>
+                    <td>@proveedor.nombre_contacto</td>
+                </tr>
+    }
+</table>
+
+@{ Html.RenderPartial("Paginador", Model); }
+

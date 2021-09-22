@@ -146,6 +146,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BaseModelo.cs" />
+    <Compile Include="Models\proveedorIndex.cs" />
     <Compile Include="Models\RCompra.cs" />
     <Compile Include="Models\ReporteProducto.cs" />
     <Compile Include="Models\cliente.cs">
@@ -401,6 +403,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Usuario\uploadCSV.cshtml" />
     <Content Include="Uploads\datos.csv" />
+    <Content Include="Views\proveedores\paginadorindex.cshtml" />
+    <Content Include="Views\Shared\Paginador.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

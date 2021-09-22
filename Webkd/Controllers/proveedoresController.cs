@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Webkd.Models;
+using System.Web.Routing;
 
 namespace Webkd.Controllers
 {
@@ -124,6 +125,36 @@ namespace Webkd.Controllers
             }
 
         }
+
+        public ActionResult PaginadorIndex(int pagina = 1)
+        {
+            try
+            {
+                var cantidadRegistros = 5;
+
+                using (var db = new inventario2021Entities())
+                {
+                    var proveedor = db.proveedor.OrderBy(x => x.id).Skip((pagina - 1) * cantidadRegistros).Take(cantidadRegistros).ToList();
+
+                    var totalRegistros = db.proveedor.Count();
+                    var model = new proveedorIndex();
+                    model.proveedors =  proveedor;
+                    model.ActualPage = pagina;
+                    model.Total = totalRegistros;
+                    model.RecordsPage = cantidadRegistros;
+                    model.valueQueryString = new RouteValueDictionary();
+
+                    return View(model);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "error " + ex);
+                return View();
+            }
+        }
+
 
     }
 }
