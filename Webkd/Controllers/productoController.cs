@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Webkd.Models;
 using Rotativa;
+using System.IO;
 
 namespace Webkd.Controllers
 {
@@ -69,7 +70,14 @@ namespace Webkd.Controllers
         {
             using (var db = new inventario2021Entities())
             {
-                return View(db.producto.Find(id));
+
+                var producto = db.producto.Find(id);
+                //conusltando de la tabla producto_iamgen las imagenes del producto
+                var imagen = db.producto_imagen.Where(e => e.id_producto == producto.id).FirstOrDefault();
+                //pasando la ruta a la vista
+                ViewBag.imagen = imagen.imagen;
+
+                return View(producto);
             }
         }
 
